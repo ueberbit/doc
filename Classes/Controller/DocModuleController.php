@@ -46,7 +46,8 @@ class DocModuleController implements ControllerInterface
             'docRootPath' => $uri,
             'documentationName' => $documentationName,
             'darkMode' => $settings['darkMode'] ?? false,
-            'themeColor' => $settings['themeColor'] ?? '#1e46b9'
+            'themeColor' => $settings['themeColor'] ?? '#1e46b9',
+            'searchMode' => $settings['searchMode'] ?? true
         ]);
 
         return $view;

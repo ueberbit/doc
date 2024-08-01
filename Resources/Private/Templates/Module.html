@@ -1,51 +1,54 @@
 
-    <!DOCTYPE html>
-    <html lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
-    <head>
-
-        <meta charset="UTF-8">
-        <title>{documentationName}</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <meta name="description" content="Description">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <f:if condition="{darkMode}">
-            <link
-                rel="stylesheet"
-                href="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/dark.css')}"
-            />
-        </f:if>
-        <link
-            rel="stylesheet"
-            href="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/vue.css')}"
-        />
-        <link
-            rel="stylesheet"
-            href="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/typo3.css')}"
-        />
-    </head>
-    <body>
-    <div id="app"></div>
-    <script nonce="{f:security.nonce()}">
-        const docRootPath = '{docRootPath}'.replace('placeholder','');
-        const themeColor = '{themeColor}';
-        const documentationName = '{documentationName}';
-        window.$docsify = {
-            name: documentationName,
-            themeColor: themeColor,
-            basePath: docRootPath,
-            homepage: 'Home.md',
-            loadSidebar: true,
-            loadNavbar: false,
-            subMaxLevel: 0,
-            autoHeader: false,
-            auto2top: true,
+<!DOCTYPE html>
+<html lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+<head>
+    <meta charset="UTF-8">
+    <title>{documentationName}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="Description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link
+        rel="stylesheet"
+        href="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/vue.css')}"
+    />
+    <link
+        rel="stylesheet"
+        href="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/typo3.css')}"
+    />
+    <f:if condition="{darkMode}">
+        <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/dark.css')}">
+    </f:if>
+</head>
+<body>
+<div id="app"></div>
+<script nonce="{f:security.nonce()}">
+    const docRootPath = '{docRootPath}'.replace('placeholder','');
+    const themeColor = '{themeColor}';
+    const documentationName = '{documentationName}';
+    window.$docsify = {
+        name: documentationName,
+        themeColor: themeColor,
+        basePath: docRootPath,
+        homepage: 'Home.md',
+        loadSidebar: true,
+        loadNavbar: false,
+        subMaxLevel: 0,
+        autoHeader: false,
+        auto2top: true,
+        search: {
+            maxAge: 3600, // Verfallszeit, Standard ist ein Tag
+            paths: 'auto',
+            placeholder: 'Suche',
+            noData: 'Keine Ergebnisse!',
+            depth: 6,
+            hideOtherSidebarContent: false,
         }
-    </script>
-    <script nonce="{f:security.nonce()}" src="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/docsify_4.11.6.js')}"></script>
-    <script nonce="{f:security.nonce()}" src="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/prism-php.min.js')}"></script>
-    </body>
-    </html>
-
-
-
-
+    }
+</script>
+<script nonce="{f:security.nonce()}" src="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/docsify_4.11.6.js')}"></script>
+<script nonce="{f:security.nonce()}" src="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/prism-php.min.js')}"></script>
+<f:if condition="{searchMode}">
+    <script src="{f:uri.resource(path: 'EXT:doc/Resources/Public/docsify/docsify-search.js')}"></script>
+</f:if>
+</body>
+</html>
