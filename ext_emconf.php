@@ -10,7 +10,7 @@ $EM_CONF[$_EXTKEY] = [
     'author_email' => 'mail@ringer.it',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.9-11.6.99',
+            'typo3' => '9.5.9-13.6.99',
         ],
         'conflicts' => [],
         'suggests' => []

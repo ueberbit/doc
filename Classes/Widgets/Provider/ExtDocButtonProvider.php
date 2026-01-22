@@ -14,20 +14,8 @@ use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
  */
 class ExtDocButtonProvider implements ButtonProviderInterface
 {
-    /**
-     * @var string
-     */
-    private $title;
-
-    /**
-     * @var string
-     */
-    private $target;
-
-    public function __construct(string $title, string $target = '')
+    public function __construct(private readonly string $title, private readonly string $target = '')
     {
-        $this->title = $title;
-        $this->target = $target;
     }
 
     public function getTitle(): string

@@ -29,7 +29,7 @@ return static function (ContainerConfigurator $configurator, ContainerBuilder $c
             ])
         ;
 
-        $services->set('GeorgRinger\Doc\Widgets\Provider\ExtDocButtonProvider')
+        $services->set(ExtDocButtonProvider::class)
             ->arg('$title', 'LLL:EXT:doc/Resources/Private/Language/locallang.xlf:widget.buttonText')
         ;
 
