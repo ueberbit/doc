@@ -14,3 +14,24 @@ services:
 
   GeorgRinger\Doc\Controller\DocServeController:
     public: true
+
+  dashboard.buttons.gotoProjectDocumentation:
+    class: 'GeorgRinger\Doc\Widgets\Provider\ExtDocButtonProvider'
+    arguments:
+      $title: 'LLL:EXT:doc/Resources/Private/Language/locallang.xlf:widget.buttonText'
+      $target: '_blank'
+
+  dashboard.widget.gotoProjectDocumentation:
+    class: 'TYPO3\CMS\Dashboard\Widgets\CtaWidget'
+    arguments:
+      $buttonProvider: '@dashboard.buttons.gotoProjectDocumentation'
+      $options:
+        text: 'LLL:EXT:doc/Resources/Private/Language/locallang.xlf:widget.text'
+    tags:
+      - name: dashboard.widget
+        identifier: 'gotoProjectDocumentation'
+        groupNames: 'documentation'
+        title: 'LLL:EXT:doc/Resources/Private/Language/locallang.xlf:widget.title'
+        description: 'LLL:EXT:doc/Resources/Private/Language/locallang.xlf:widget.description'
+        iconIdentifier: 'content-widget-text'
+        height: 'small'
