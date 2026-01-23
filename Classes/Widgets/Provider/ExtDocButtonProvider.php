@@ -6,6 +6,7 @@ namespace GeorgRinger\Doc\Widgets\Provider;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Dashboard\Widgets\ButtonProviderInterface;
+use TYPO3\CMS\Backend\Routing\UriBuilder;
 
 /**
  * Provide link for project documentation.
@@ -28,7 +29,8 @@ class ExtDocButtonProvider implements ButtonProviderInterface
     public function getLink(): string
     {
         if (ExtensionManagementUtility::isLoaded('doc')) {
-            return 'javascript:top.goToModule(' . GeneralUtility::quoteJSvalue('help_doc') . ');';
+            $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
+            return (string)$uriBuilder->buildUriFromRoute('doc');
         }
 
         return '';
